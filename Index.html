@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Taller</title>
+
+    <!-- Firebase App (v9) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+    </script>
+</head>
+<body>
+    <h1>Programa de Registro de Autos - Taller</h1>
+    
+    <div class="menu">
+        <button onclick="showSection('vehiculos')">Gestión de Vehículos</button>
+        <button onclick="showSection('clientes')">Gestión de Clientes</button>
+        <button onclick="showSection('ordenes')">Órdenes de Trabajo</button>
+        <button onclick="showSection('inventario')">Gestión de Inventario</button>
+        <button onclick="showSection('facturacion')">Facturación</button>
+        <button onclick="showSection('informes')">Informes</button>
+        <button onclick="showSection('cotizaciones')">Cotizaciones</button>
+    </div>
+
+    <!-- Vehículos -->
+    <div id="vehiculos" class="section">
+        <h2>Gestión de Vehículos</h2>
+        <form id="vehiculo-form">
+            <input type="text" id="marca" placeholder="Marca" required>
+            <input type="text" id="modelo" placeholder="Modelo" required>
+            <input type="text" id="matricula" placeholder="Matrícula" required>
+            <input type="text" id="año" placeholder="Año" required>
+            <button type="submit">Agregar Vehículo</button>
+        </form>
+        <div id="vehiculos-list"></div>
+    </div>
+
+    <!-- Clientes -->
+    <div id="clientes" class="section">
+        <h2>Gestión de Clientes</h2>
+        <form id="cliente-form">
+            <input type="text" id="nombre-cliente" placeholder="Nombre" required>
+            <input type="text" id="telefono-cliente" placeholder="Teléfono" required>
+            <input type="email" id="email-cliente" placeholder="Email" required>
+            <button type="submit">Agregar Cliente</button>
+        </form>
+        <div id="clientes-list"></div>
+    </div>
+
+    <!-- Órdenes de Trabajo -->
+    <div id="ordenes" class="section">
+        <h2>Órdenes de Trabajo</h2>
+        <form id="orden-form">
+            <input type="text" id="descripcion-orden" placeholder="Descripción del trabajo" required>
+            <input type="text" id="vehiculo-orden" placeholder="ID del Vehículo" required>
+            <input type="text" id="cliente-orden" placeholder="ID del Cliente" required>
+            <button type="submit">Agregar Orden</button>
+        </form>
+        <div id="ordenes-list"></div>
+    </div>
+
+    <!-- Inventario -->
+    <div id="inventario" class="section">
+        <h2>Gestión de Inventario</h2>
+        <form id="inventario-form">
+            <input type="text" id="pieza" placeholder="Nombre de la pieza" required>
+            <input type="number" id="cantidad" placeholder="Cantidad" required>
+            <button type="submit">Agregar Pieza</button>
+        </form>
+        <div id="inventario-list"></div>
+    </div>
+
+    <!-- Facturación -->
+    <div id="facturacion" class="section">
+        <h2>Facturación</h2>
+        <form id="factura-form">
+            <input type="text" id="orden-factura" placeholder="ID de la Orden" required>
+            <input type="number" id="total-factura" placeholder="Monto Total" required>
+            <button type="submit">Generar Factura</button>
+        </form>
+        <div id="facturas-list"></div>
+    </div>
+
+    <!-- Informes -->
+    <div id="informes" class="section">
+        <h2>Informes</h2>
+        <!-- Aquí podrías mostrar un resumen de los informes -->
+    </div>
+
+    <!-- Cotizaciones -->
+    <div id="cotizaciones" class="section">
+        <h2>Cotizaciones</h2>
+        <form id="cotizacion-form">
+            <input type="text" id="descripcion-cotizacion" placeholder="Descripción del trabajo" required>
+            <input type="number" id="precio-cotizacion" placeholder="Precio estimado" required>
+            <button type="submit">Generar Cotización</button>
+        </form>
+        <div id="cotizaciones-list"></div>
+    </div>
+
+    <!-- Incluye tu archivo app.js como un módulo -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
